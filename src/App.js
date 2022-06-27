@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CoinPage from "./Pages/CoinPage";
 import Header from "./components/Header";
 import { makeStyles } from '@mui/styles';
+import Alert from "./components/Alert";
 
 const useStyles = makeStyles({
   App: {
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/coins/:id" element={<CoinPage />} exact />
         </Routes>
       </div>
+      <Alert />
     </BrowserRouter>
   );
 }

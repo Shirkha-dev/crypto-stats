@@ -5,7 +5,7 @@ import Carousel from './Carousel';
 
 const useStyles = makeStyles(() => ({
     banner: {
-        backgroundImage: "url(./banner4.jpg)",
+        backgroundImage: "url(./banner2.jpg)",
     },
     bannerContent: {
         height: 400,
@@ -35,7 +35,6 @@ const Banner = () => {
                             fontWeight: "bold",
                             marginBottom: 15,
                             fontFamily: "Montserrat",
-                            color: "#1a7d5f"
                         }}
                     >
                         CryptoStats
@@ -43,12 +42,13 @@ const Banner = () => {
                     <Typography
                         variant="subtitle2"
                         style={{
-                            color: "darkgrey",
+                            color: "#c1ccde",
+                            // fontWeight: "bold",
                             textTransform: "capitalize",
                             fontFamily: "Montserrat",
                         }}
                     >
-                        All-in-one cryptocurrency tracking app. View the latest prices, monitor your portfolio and read the latest crypto news.
+                        Keep an eye on all the cryptocurrencies you hold and mange your cryptocurrency portfolio.
                     </Typography>
                 </div>
                 <Carousel />

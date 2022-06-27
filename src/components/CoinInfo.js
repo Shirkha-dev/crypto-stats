@@ -9,30 +9,6 @@ import { Line } from "react-chartjs-2";
 import { chartDays } from '../config/data';
 import SelectButton from './SelectButton';
 
-// import {
-//     Chart as ChartJS,
-//     CategoryScale,
-//     LinearScale,
-//     PointElement,
-//     LineElement,
-//     Title,
-//     Tooltip,
-//     Legend,
-// } from 'chart.js';
-
-
-// ChartJS.register(
-//     CategoryScale,
-//     LinearScale,
-//     PointElement,
-//     LineElement,
-//     Title,
-//     Tooltip,
-//     Legend
-// );
-
-
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -86,7 +62,7 @@ const CoinInfo = ({ coin }) => {
             <div className={classes.container}>
                 {!historicData ? (
                     <CircularProgress
-                        style={{ color: "gold" }}
+                        style={{ color: "#17a2b8" }}
                         size={250}
                         thickness={1}
                     />
@@ -107,7 +83,7 @@ const CoinInfo = ({ coin }) => {
                                     {
                                         data: historicData.map((coin) => coin[1]),
                                         label: `Price ( Past ${days} Days ) in ${currency}`,
-                                        borderColor: "#EEBC1D",
+                                        borderColor: "#17a2b8",
                                     },
                                 ],
                             }}

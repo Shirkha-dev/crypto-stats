@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { CoinList } from '../config/api';
 import { CryptoState } from '../CryptoContext';
-import axios from 'axios';
 import { Pagination } from '@mui/lab';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import {
@@ -35,28 +33,20 @@ const useStyles = makeStyles({
     },
     pagination: {
         "& .MuiPaginationItem-root": {
-            color: "gold",
+            color: "#17a2b8",
         },
     },
 });
 
 const CoinsTable = () => {
-    const [coins, setCoins] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
     const navigate = useNavigate();
     const classes = useStyles();
 
-    const { currency, symbol } = CryptoState();
+    const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
 
-    const fetchCoins = async () => {
-        setLoading(true);
-        const { data } = await axios.get(CoinList(currency));
 
-        setCoins(data);
-        setLoading(false);
-    };
     console.log(coins);
 
     useEffect(() => {
@@ -85,10 +75,10 @@ const CoinsTable = () => {
         <ThemeProvider theme={darkTheme}>
             <Container style={{ textAlign: "center" }}>
                 <Typography
-                    variant="h4"
+                    variant="h5"
                     style={{ margin: 18, fontFamily: "Montserrat" }}
                 >
-                    Cryptocurrency Prices by Market Cap
+                    Today's Cryptocurrency Prices by Market Cap
                 </Typography>
                 <TextField
                     label="Search For a Crypto Currency.."
@@ -99,10 +89,10 @@ const CoinsTable = () => {
 
                 <TableContainer component={Paper}>
                     {loading ? (
-                        <LinearProgress style={{ backgroundColor: "gold" }} />
+                        <LinearProgress style={{ backgroundColor: "#17a2b8" }} />
                     ) : (
                         <Table>
-                            <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+                            <TableHead style={{ backgroundColor: "#17a2b8" }}>
                                 <TableRow>
                                     {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                                         <TableCell
